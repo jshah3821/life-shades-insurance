@@ -1,0 +1,30 @@
+@import "../../../app.scss";
+.custom-button {
+    // background: rgba(0, 0, 0, 0.5);
+    // border: 1px solid $white-color;
+    // border-radius: 50%;
+    // color: $white-color;
+    height: 40px;
+    width: 40px;
+    font-size: 1rem;
+    position: absolute;
+    border: none;
+    background: transparent;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.custom-right {
+    top: 4rem;
+    right: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+.custom-left {
+    top: 4rem;
+    left: 0;
+    cursor: pointer;
+    z-index: 1;
+}

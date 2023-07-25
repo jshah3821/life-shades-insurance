@@ -1,0 +1,16 @@
+deploy:
+    stage: deploy
+    tags:
+        - "jetprints-admin"
+    variables:
+        Build_Path: "/var/www/html/builds/gDC1y2Re/0/ravinder.s/jetprint/"
+        Target_Path: "/var/www/html/jetprint/"    
+    script:
+        - echo "Application is Deploying"
+        - nvm install 14.17.1 && nvm use 14.17.1
+        - npm install
+        - CI= npm run build
+        - rsync -P -av -r $Build_Path/build/* $Target_Path
+        - rm -rf /var/www/html/builds/gDC1y2Re/
+    only:
+        - dev        
