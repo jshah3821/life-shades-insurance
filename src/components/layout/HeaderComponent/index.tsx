@@ -23,7 +23,7 @@ const HeaderComponent = () => {
         </Col>
         <Col lg={8} sm={12} className={classes.navLinks}>
           <div>
-            <h1>About</h1>
+            <h1>About Us</h1>
           </div>
           <div>
             <h1
@@ -31,14 +31,23 @@ const HeaderComponent = () => {
                 navigate(MEDICARE_PAGE);
               }}
             >
-              Medicare
+              Life Insurance
             </h1>
           </div>
           <div>
-            <h1>Employee Benifits</h1>
+            <h1>General Insurance</h1>
           </div>
           <div>
-            <h1>Individuals</h1>
+            <h1>Mutual Fund</h1>
+          </div>
+          <div>
+            <h1>Deposit</h1>
+          </div>
+          <div>
+            <h1>Bonds</h1>
+          </div>
+          <div>
+            <h1>Blogs</h1>
           </div>
         </Col>
         <Col

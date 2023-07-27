@@ -1,13 +1,16 @@
 @import "assets/styles/variables.scss";
 @import "assets/styles/mixins.scss";
 
+
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: $montserrat-regular;
 }
+
 html,
 body,
 div,
@@ -96,6 +99,7 @@ col {
   font-size: 100%;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -110,17 +114,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -142,6 +150,7 @@ q:after {
   -webkit-appearance: none;
   appearance: none;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

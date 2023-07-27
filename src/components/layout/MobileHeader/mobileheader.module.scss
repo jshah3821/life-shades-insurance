@@ -1,0 +1,7 @@
+@import "../../../app.scss";
+
+.mobileheader_container {
+    @include desktopsmall {
+        display: none;
+    }
+}
