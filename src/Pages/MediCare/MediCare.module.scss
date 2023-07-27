@@ -1,0 +1,57 @@
+@import "../../app.scss";
+
+
+.Medicare_page_main {
+    background-image: url(https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80);
+
+    min-height: 400px;
+    height: 100%;
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .caption_data {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+
+        .caption_data_border {
+            color: $brown-color;
+            padding: 18px;
+            font-size: 70px;
+            letter-spacing: 10px;
+        }
+    }
+
+    
+}
+
+.medicare_data_section{
+    text-align: center;
+
+.title_data {
+    h1{
+        margin-top: 1rem;
+        font-size: 21px;
+        font-weight: bolder;
+        line-height: 1.7rem;
+    }
+}
+.data_description{
+    text-align: justify;
+    margin: 2rem 0;
+    font-size: 16px;
+    font-weight: 600;
+    padding:  0 2rem;
+    p{
+        margin-top: 1rem;
+        line-height: 1.2rem;
+    }
+}
+}
