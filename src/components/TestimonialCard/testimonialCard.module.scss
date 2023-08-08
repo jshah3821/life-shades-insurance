@@ -1,14 +1,78 @@
+@import "../../app.scss";
 .card {
+  padding: 10px;
   display: flex;
-  max-width: 250px;
-  .imgContainer {
-    height: 150px;
-    width: 150px;
-    border-radius: 150px;
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $white-color;
+  height: 230px;
+  width: 380px;
+  @include laptop {
+    max-width: 280px;
+    height: 100%;
+  }
+  border: solid 2px $brown-color;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 20px -4px rgba(128, 128, 128, 1);
+  -moz-box-shadow: 0px 0px 20px -4px rgba(128, 128, 128, 1);
+  box-shadow: 0px 0px 20px -4px rgba(128, 128, 128, 1);
+  .firstRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include laptop {
+      flex-direction: column;
+    }
+    .imgContainer {
+      height: 100px;
+      width: 100px;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        border: solid 2px $brown-color;
+      }
+    }
+    .description {
+      padding: 10px;
+      max-width: 275px;
+      line-height: 20px;
+      text-align: justify;
+      text-align: start;
+      font-size: 16px;
+      font-weight: bold;
+      color: $gray-color;
+      font-style: italic;
+    }
+  }
+
+  .reviewerName {
+    color: $brown-color;
+    font-weight: bold;
+    align-self: flex-end;
+  }
+  .reviewerDesignation {
+    font-weight: bolder;
+    align-self: flex-end;
+    font-size: 12px;
+    line-height: 20px;
+    font-family: $montserrat-extrabold;
+  }
+  &:hover {
+    background-color: $brown-color;
+    transition: background-color 0.5s ease;
+
+    .firstRow {
+      .description {
+        color: $white-color;
+      }
+    }
+    .reviewerName {
+      color: $white-color;
+    }
+    .reviewerDesignation {
+      color: $white-color;
     }
   }
 }

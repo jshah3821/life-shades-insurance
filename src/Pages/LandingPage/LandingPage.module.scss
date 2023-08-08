@@ -7,8 +7,6 @@
 }
 
 .landing_page_main {
-  .bannerSection {}
-
   .ourServices {
     padding: 40px 0px;
 
@@ -21,6 +19,8 @@
 
     .svgSection {
       @include flex;
+      flex-wrap: wrap;
+      gap: 20px;
       justify-content: space-evenly;
       padding: 40px 0px;
 
@@ -43,6 +43,7 @@
 
         &:hover {
           background-color: $brown-color;
+          transition: background-color 0.5s ease;
 
           h3 {
             color: $white-color;
@@ -53,11 +54,20 @@
   }
 
   .testimonial {
-    padding: 40px 0px;
-    background-color: $brown-color;
+    padding: 0px 0px 40px 0px;
 
     h2 {
+      color: $brown-color;
+      text-align: center;
+      font-family: $montserrat-extrabold;
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+  }
+  .contactUs {
+    h2 {
       color: $white-color;
+      background-color: $brown-color;
       text-align: center;
       font-family: $montserrat-extrabold;
       font-size: 40px;

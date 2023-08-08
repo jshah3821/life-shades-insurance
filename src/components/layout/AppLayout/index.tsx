@@ -8,7 +8,7 @@ const AppLayout = () => {
   return (
     <React.Fragment>
       <HeaderComponent />
-      <MobileHeader tabIndex={-1} />
+      <MobileHeader />
       <Outlet />
       <Footer />
     </React.Fragment>

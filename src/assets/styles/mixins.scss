@@ -41,7 +41,7 @@
 
 //max-1440px
 @mixin midlarge {
-  @media(max-width:#{$lg-max-width}) {
+  @media (max-width:#{$lg-max-width}) {
     @content;
   }
 }
@@ -60,7 +60,7 @@
 }
 
 @mixin laptop {
-  @media (max-width: #{$mdd-max-width}) {
+  @media (max-width: #{$md-max-width}) {
     @content;
   }
 }
@@ -102,17 +102,23 @@
 
 //***** all the font sizes *****//
 // font mixin creation
-@mixin headingFont {}
+@mixin headingFont {
+}
 
-@mixin semiBoldFont {}
+@mixin semiBoldFont {
+}
 
-@mixin mediumFont {}
+@mixin mediumFont {
+}
 
-@mixin paragraphFont {}
+@mixin paragraphFont {
+}
 
-@mixin lightFont {}
+@mixin lightFont {
+}
 
-@mixin italicFont {}
+@mixin italicFont {
+}
 
 @mixin flex {
   display: flex;

@@ -4,28 +4,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import bannerImg from "../../assets/images/Background/banner_img.webp";
 import { svgSectionData } from "../../helpers/storage";
-import TestimonialCard from "../../components/TestimonialCard";
-import { ListGroupItem } from "react-bootstrap";
-
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 6,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 2,
-  },
-};
+import SlideCarousel from "../../components/SlideCarousel";
+import ContactUsForm from "../../components/ContactUsForm";
 
 const LandingPage = () => {
   const [svgMouseOverIndex, setSvgMouseOverIndex] = useState(NaN);
@@ -64,12 +44,17 @@ const LandingPage = () => {
         </div>
         <div className={classes.testimonial}>
           <h2>Our Testimonials</h2>
-          <TestimonialCard
-            src={bannerImg}
-            description={
-              "abcdefghijklmnmnfnvngrnbignviugnvuignivniuvniuvnrguivibviviunuivnguinvuinvuinvuinvuinviunuivnivirviuuv"
-            }
-          />
+          <SlideCarousel />
+        </div>
+        <div className={classes.contactUs}>
+          <h2>Contact Us</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.694471758649!2d72.55904947388595!3d23.034987715867533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e853c0056d999%3A0x9f9cfb680087407e!2sLifeshades%20Insurance%20%26%20Investment%20Advisory!5e0!3m2!1sen!2sin!4v1690635250779!5m2!1sen!2sin"
+            width="100%"
+            height="350"
+            loading="lazy"
+          ></iframe>
+          <ContactUsForm />
         </div>
       </div>
     </React.Fragment>

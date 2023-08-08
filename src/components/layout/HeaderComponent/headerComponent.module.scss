@@ -1,6 +1,9 @@
 @import "../../../app.scss";
 
 .headerContainer {
+  // position: sticky;
+  // top: 0px;
+  background-color: $white-color;
   @include tablet {
     display: none;
   }
@@ -35,21 +38,27 @@
 
   .navLinks {
     @include flex;
-    gap: 2rem;
+    gap: 10px;
 
     div {
       padding: 10px;
 
       &:hover {
-        background-color: $brown-color;
-
+        background: rgb(165, 10, 10);
+        background: linear-gradient(
+          90deg,
+          rgba(165, 10, 10, 0.93) 0%,
+          rgba(165, 42, 42, 1) 18%,
+          rgba(165, 80, 80, 0.966999299719888) 100%
+        );
+        transition: background-color 0.3s ease;
         h1 {
           color: $white-color;
         }
       }
 
       h1 {
-        padding: 0px 10px;
+        font-size: 16px;
         font-family: $montserrat-extrabold;
         color: $brown-color;
         cursor: pointer;

@@ -1,12 +1,11 @@
-import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ClassNames } from "@emotion/react";
 import ArrowNext from "../../assets/Icon/SliderNext.svg";
 import ArrowPrevious from "../../assets/Icon/SliderPrevious.svg";
 import { max } from "lodash";
+import TestimonialCard from "../TestimonialCard";
+import { reviewData } from "../../helpers/storage";
 
 const responsive = {
   superLargeDesktop: {
@@ -15,57 +14,19 @@ const responsive = {
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 920 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 920, min: 600 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 600, min: 0 },
     items: 1,
   },
 };
 
-const BlackFridayData = [
-  {
-    id: 1,
-    cardImage: "/FridayCard/Fri1.svg",
-    cardDiscount: "Up to 60% off",
-    cardType: "Business Cards",
-  },
-  {
-    id: 2,
-    cardImage: "/FridayCard/Fri2.svg",
-    cardDiscount: "Up to 60% off",
-    cardType: "Envelopes",
-  },
-  {
-    id: 3,
-    cardImage: "/FridayCard/Fri3.svg",
-    cardDiscount: "Up to 60% off",
-    cardType: "Brochure",
-  },
-  {
-    id: 4,
-    cardImage: "/FridayCard/Fri4.svg",
-    cardDiscount: "Up to 60% off",
-    cardType: "Banners",
-  },
-  {
-    id: 5,
-    cardImage: "/FridayCard/Fri5.svg",
-    cardDiscount: "Up to 60% off",
-    cardType: "Postcards",
-  },
-  {
-    id: 6,
-    cardImage: "/FridayCard/Fri6.svg",
-    cardDiscount: "Up to 60% off",
-    cardType: "Catalogs",
-  },
-];
 const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
   const {
     carouselState: { currentSlide },
@@ -87,44 +48,30 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
     </div>
   );
 };
+
 const SlideCarousel = () => {
   return (
-    <div className="black-friday-sale p-4 mt-4">
-      <h6 className="black-friday-title">Shop early Black Friday deals</h6>
-      <div className="friday-sale-cards">
-        <Row>
-          <Carousel
-            responsive={responsive}
-            arrows={false}
-            customButtonGroup={<ButtonGroup />}
-          >
-            {BlackFridayData.map((item, index) => {
-              return (
-                <>
-                  <Col lg={2}>
-                    <div className="card">
-                      <div className="image-wrapper">
-                        <img src={item.cardImage} alt="card" />
-                      </div>
-                      <div className="card-discount">{item.cardDiscount}</div>
-                    </div>
-                    <div className="card-types d-flex mt-2">
-                      <Link to="#" className="card-type-link">
-                        {item.cardType}
-                      </Link>
-                      {/* <img
-                    src={ArrowIcon}
-                    alt="arrow-icon"
-                    className="arrow-icon ms-2"
-                  /> */}
-                    </div>
-                  </Col>
-                </>
-              );
-            })}
-          </Carousel>
-        </Row>
-      </div>
+    <div style={{ width: "95%", marginLeft: "auto", marginRight: "auto" }}>
+      <Carousel
+        infinite
+        autoPlay
+        arrows={false}
+        autoPlaySpeed={3000}
+        responsive={responsive}
+        customButtonGroup={<ButtonGroup />}
+      >
+        {reviewData.map((item, index) => {
+          return (
+            <TestimonialCard
+              key={index}
+              src={item?.src}
+              description={item?.description}
+              reviewerName={item?.reviewerName}
+              reviewerDesignation={item?.reviewerDesignation}
+            />
+          );
+        })}
+      </Carousel>
     </div>
   );
 };
