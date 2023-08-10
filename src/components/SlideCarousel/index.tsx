@@ -6,6 +6,7 @@ import ArrowPrevious from "../../assets/Icon/SliderPrevious.svg";
 import { max } from "lodash";
 import TestimonialCard from "../TestimonialCard";
 import { reviewData } from "../../helpers/storage";
+import "./slideCarousel.module.scss";
 
 const responsive = {
   superLargeDesktop: {
@@ -51,11 +52,11 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
 
 const SlideCarousel = () => {
   return (
-    <div style={{ width: "95%", marginLeft: "auto", marginRight: "auto" }}>
+    <div className="carousel_container">
       <Carousel
         infinite
-        autoPlay
-        arrows={false}
+        // autoPlay
+        arrows={true}
         autoPlaySpeed={3000}
         responsive={responsive}
         customButtonGroup={<ButtonGroup />}

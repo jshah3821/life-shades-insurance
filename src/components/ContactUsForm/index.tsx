@@ -104,7 +104,7 @@ const ContactUsForm = () => {
     <div className={classes.contactUs_container}>
       <form onSubmit={handleSubmit}>
         <Row>
-          <Col lg={6} style={{ padding: "2px" }}>
+          <Col lg={6}>
             <div
               className={
                 error.first_name
@@ -128,7 +128,7 @@ const ContactUsForm = () => {
               <div className="error-msg mt-1">{error.first_name}</div>
             )}
           </Col>
-          <Col lg={6} style={{ padding: "2px" }}>
+          <Col lg={6}>
             <div
               className={
                 error.last_name
@@ -176,7 +176,7 @@ const ContactUsForm = () => {
         </div>
         {error.email && <div className="error-msg">{error.email}</div>}
         <Row>
-          <Col lg={6} style={{ padding: "2px" }}>
+          <Col lg={6}>
             <div
               className={
                 !error.phone
@@ -204,7 +204,7 @@ const ContactUsForm = () => {
             </div>
             {error.phone && <div className="error-msg mt-1">{error.phone}</div>}
           </Col>
-          <Col lg={6} style={{ padding: "2px" }}>
+          <Col lg={6}>
             <div
               className={
                 error.service
@@ -231,12 +231,13 @@ const ContactUsForm = () => {
         <div
           className={
             error.query
-              ? `${classes.name_field} ${classes.input_field} ${classes.border_error}`
-              : `${classes.name_field} ${classes.input_field}`
+              ? `${classes.name_field_textarea} ${classes.input_field} ${classes.border_error}`
+              : `${classes.name_field_textarea} ${classes.input_field}`
           }
         >
           <textarea
             name="query"
+            rows={4}
             value={formData?.query}
             placeholder="What can we help you with?*"
             onChange={handleOnChange}

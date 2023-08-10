@@ -1,36 +1,35 @@
 import { useState } from "react";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { GiHamburgerMenu } from "react-icons/gi";
+import brandLogo from "../../assets/images/brandLogo.png";
+import classes from "./offcanvas.module.scss";
+import { useNavigate } from "react-router-dom";
 
 function OffcanvasContent() {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
-    <>
+    <div className={classes.canvas_container}>
       <button className="d-lg-none" onClick={handleShow}>
         <GiHamburgerMenu />
       </button>
 
-      <Alert variant="info" className="d-none d-lg-block">
-        Resize your browser to show the responsive offcanvas toggle.
-      </Alert>
-
       <Offcanvas show={show} onHide={handleClose} responsive="lg">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Responsive offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
+        <Offcanvas.Header closeButton></Offcanvas.Header>
         <Offcanvas.Body>
+          <div onClick={() => navigate("/")} className={classes.brandLogo}>
+            <img src={brandLogo} alt="brandLogo" />
+          </div>
           <p className="mb-0">
             This is content within an <code>.offcanvas-lg</code>.
           </p>
         </Offcanvas.Body>
       </Offcanvas>
-    </>
+    </div>
   );
 }
 

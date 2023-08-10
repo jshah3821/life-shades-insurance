@@ -1,1 +1,14 @@
 @import "../../app.scss";
+.canvas_container {
+}
+.brandLogo {
+  height: 80% !important;
+  width: 80% !important;
+  opacity: 0.3;
+  transform: translate(10%, 10%);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
