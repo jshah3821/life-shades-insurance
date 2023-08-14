@@ -38,7 +38,7 @@
 
   .navLinks {
     @include flex;
-    gap: 10px;
+    gap: 5px;
 
     div {
       padding: 10px;
@@ -62,6 +62,21 @@
         font-family: $montserrat-extrabold;
         color: $brown-color;
         cursor: pointer;
+      }
+      @media (max-width: "1260px") {
+        h1 {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: "1130px") {
+        h1 {
+          font-size: 13px;
+        }
+      }
+    }
+    @media (max-width: "1130px") {
+      div {
+        padding: 5px;
       }
     }
   }

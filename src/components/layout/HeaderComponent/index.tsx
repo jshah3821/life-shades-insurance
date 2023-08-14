@@ -2,7 +2,11 @@ import React from "react";
 import classes from "./headerComponent.module.scss";
 import { Col, Row } from "react-bootstrap";
 import brandLogo from "../../../assets/images/brandLogo.png";
-import { HOME_PAGE, MEDICARE_PAGE } from "../../../routing/routes";
+import {
+  ABOUT_SECTION,
+  HOME_PAGE,
+  MEDICARE_PAGE,
+} from "../../../routing/routes";
 import { useNavigate } from "react-router-dom";
 const HeaderComponent = () => {
   const navigate = useNavigate();
@@ -22,17 +26,19 @@ const HeaderComponent = () => {
           </div>
         </Col>
         <Col lg={8} sm={12} className={classes.navLinks}>
-          <div>
+          <div
+            onClick={() => {
+              navigate(ABOUT_SECTION);
+            }}
+          >
             <h1>About Us</h1>
           </div>
-          <div>
-            <h1
-              onClick={() => {
-                navigate(MEDICARE_PAGE);
-              }}
-            >
-              Life Insurance
-            </h1>
+          <div
+            onClick={() => {
+              navigate(MEDICARE_PAGE);
+            }}
+          >
+            <h1>Life Insurance</h1>
           </div>
           <div>
             <h1>General Insurance</h1>

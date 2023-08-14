@@ -1,5 +1,5 @@
 import React, { TextareaHTMLAttributes, useState } from "react";
-import { emailRegex } from "../../helpers/storage";
+import { emailRegex, services } from "../../helpers/storage";
 import classes from "./contactus.module.scss";
 import { Col, Row } from "react-bootstrap";
 
@@ -43,7 +43,7 @@ const ContactUsForm = () => {
           return "";
         }
       case "service":
-        if (!value.trim()) {
+        if (value.trim() === "Select type of service") {
           return "Select required service";
         } else {
           return "";
@@ -79,7 +79,8 @@ const ContactUsForm = () => {
   type IState = {
     [key: string]: any;
   };
-  const handleSubmit = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
     let validationErrors: IState = {};
     Object.keys(formData).forEach((name) => {
       const error = validate(name, formData[name]);
@@ -102,7 +103,7 @@ const ContactUsForm = () => {
   };
   return (
     <div className={classes.contactUs_container}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <Row>
           <Col lg={6}>
             <div
@@ -125,7 +126,7 @@ const ContactUsForm = () => {
               />
             </div>
             {error.first_name && (
-              <div className="error-msg mt-1">{error.first_name}</div>
+              <div className={classes.error_msg}>{error.first_name}</div>
             )}
           </Col>
           <Col lg={6}>
@@ -149,7 +150,7 @@ const ContactUsForm = () => {
               />
             </div>
             {error.last_name && (
-              <div className="error-msg mt-1">{error.last_name}</div>
+              <div className={classes.error_msg}>{error.last_name}</div>
             )}
           </Col>
         </Row>
@@ -174,7 +175,7 @@ const ContactUsForm = () => {
             }}
           />
         </div>
-        {error.email && <div className="error-msg">{error.email}</div>}
+        {error.email && <div className={classes.error_msg}>{error.email}</div>}
         <Row>
           <Col lg={6}>
             <div
@@ -202,7 +203,9 @@ const ContactUsForm = () => {
                 }}
               />
             </div>
-            {error.phone && <div className="error-msg mt-1">{error.phone}</div>}
+            {error.phone && (
+              <div className={classes.error_msg}>{error.phone}</div>
+            )}
           </Col>
           <Col lg={6}>
             <div
@@ -212,7 +215,7 @@ const ContactUsForm = () => {
                   : `${classes.name_field} ${classes.input_field}`
               }
             >
-              <input
+              {/* <input
                 type="text"
                 name="service"
                 value={formData?.service}
@@ -221,10 +224,19 @@ const ContactUsForm = () => {
                 onKeyDown={(event) => {
                   if (event.code === "Space") event.preventDefault();
                 }}
-              />
+              /> */}
+              <select
+                name="service"
+                onChange={handleOnChange}
+                value={formData.service}
+              >
+                {services.map((service) => {
+                  return <option value={service}>{service}</option>;
+                })}
+              </select>
             </div>
             {error.service && (
-              <div className="error-msg mt-1">{error.service}</div>
+              <div className={classes.error_msg}>{error.service}</div>
             )}
           </Col>
         </Row>
@@ -246,7 +258,7 @@ const ContactUsForm = () => {
             }}
           />
         </div>
-        {error.query && <div className="error-msg mt-1">{error.query}</div>}
+        {error.query && <div className={classes.error_msg}>{error.query}</div>}
         <div className={`${classes.field} ${classes.button_field}`}>
           <input type="submit" />
         </div>

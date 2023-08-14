@@ -1,5 +1,6 @@
 @import "../../app.scss";
 .canvas_container {
+  z-index: 999999;
 }
 .brandLogo {
   height: 80% !important;
