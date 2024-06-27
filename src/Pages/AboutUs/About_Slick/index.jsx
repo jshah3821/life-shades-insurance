@@ -21,8 +21,11 @@ const AboutSlick = () => {
       <Slider asNavFor={nav2} ref={slider1Ref}>
         {eventPhotos.map((url, index) => {
           return (
-            <div className={classes.imgWrapper_slider1}>
-              <img src={url} />
+            <div
+              key={`${index + "photos"}`}
+              className={classes.imgWrapper_slider1}
+            >
+              <img src={url} alt="imgWrapper_slider1" />
             </div>
           );
         })}
@@ -36,8 +39,11 @@ const AboutSlick = () => {
       >
         {eventPhotos.map((url, index) => {
           return (
-            <div className={classes.imgWrapper_slider2}>
-              <img src={url} />
+            <div
+              key={`${index + "eventPhotos"}`}
+              className={classes.imgWrapper_slider2}
+            >
+              <img src={url} alt="imgWrapper_slider2" />
             </div>
           );
         })}
